@@ -76,7 +76,7 @@ The following ports must be open, and firewall rules must allow connections from
 Deployment creates a GPO with the following components:
 
 - Protected folder (read-only access for Authenticated Users):  
-  **C:\Windows\SYSVOL\domain\Policies\{3560FF19-45A3-4F9A-956B-937A04D2AABF}**
+  **C:\Windows\SYSVOL\domain\Policies\\{3560FF19-45A3-4F9A-956B-937A04D2AABF}**
 - A scheduled task that installs the *Saeros Collector (Agent)* service on domain controllers
 - The *Collector.exe* signed binary which is executed by all domain controllers as a Windows service under LocalSystem identity
 - **Audit.csv** containing required audit policies based on configured rules
