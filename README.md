@@ -87,9 +87,10 @@ Deployment creates a GPO with the following components:
   *Turn on Module Logging*,  
   *Turn on PowerShell Script Block Logging*
 
-**Note:** Only detections—not full event logs—are sent from the *Agent* to the *Bridge*, significantly reducing bandwidth requirements.
+> [!NOTE]
+> Only detections—not full event logs—are sent from the *Agent* to the *Bridge*, significantly reducing bandwidth requirements.
 
-#### Diagrams
+### Diagrams
 | Standalone           | Active Directory |
 | ------------- | ------------- |
 | <img src="https://github.com/user-attachments/assets/3fbd705c-8ebc-4894-9317-59d44dc575c6" data-canonical-src="https://github.com/user-attachments/assets/3fbd705c-8ebc-4894-9317-59d44dc575c6" width="500" />  | <img src="https://github.com/user-attachments/assets/c7cb7208-03ef-4689-8804-21e3e4cb7987" data-canonical-src="https://github.com/user-attachments/assets/c7cb7208-03ef-4689-8804-21e3e4cb7987" width="500" />  |
