@@ -5,7 +5,7 @@
 </h1>
 
 <div>
-  <h2 align="center">An open source HIDS tailored for Microsoft Active Directory and Workstations</h2>
+  <h2 align="center">An open source HIDS tailored for Microsoft Windows and Active Directory</h2>
   <p align="center">Enrich your SIEM for threat intelligence, forensics and UEBA (User & entity behavior analytics).</p>
 </div>
 
@@ -15,14 +15,18 @@ Saeros is neither a SIEM nor an EDR. Instead, it sits between the two, deliverin
 
 ## Key takeaways
 
-- **High-performance processing**: Handles **tens of thousands of Windows Event Logs per second** with negligible CPU impact.
-- **Lower bandwidth usage**: Detection logic runs **locally on each host**, sending only matches over gRPC.
-- **Seamless audit policies configuration**: **Automatically updates audit policies** depending on enabled rules.
-- **Extensive detection ruleset**: Includes **thousands of curated Sigma rules** from the official [Sigma](https://github.com/SigmaHQ/sigma) repository.
-- **Effortless AD integration**: Deploys to **domain controllers in a single click**.
-- **Air-gapped ready**: Fully functional **without any internet connectivity**.
-- **Zero external dependencies**: **No DBMS or third-party components** required.
-- **Fast, simple installation**: Up and running in **four clicks**.
+- **High-performance processing**: Ingests **tens of thousands of Windows Event Logs per second** with minimal CPU usage.
+- **Low bandwidth footprint**: Executes detection logic **locally on each host**, sending only matched detections over gRPC.
+- **Automatic audit policy management**: **Dynamically configures audit policies** based on the rules you enable.
+- **Extensive ruleset**: Ships with **thousands of curated Sigma rules** from the official [Sigma](https://github.com/SigmaHQ/sigma) repository.
+- **Customizable rules**: Modify any rule at runtime to **fit your environment and requirements**.
+- **Flexible detection exclusions**: **Exclude detections** using one or multiple event properties.
+- **Powerful integrations**: Forward detections directly to **ElasticSearch**.
+- **MITRE ATT&CK visibility**: Explore detection coverage by **tactic**, **technique**, or **sub-technique**.
+- **Effortless AD deployment**: Install agents on **domain controllers with a single click**.
+- **Air-gapped ready**: Fully operational **without internet access**.
+- **Zero external dependencies**: Requires **no DBMS or third-party components**.
+- **Fast, simple installation**: Get started in **just a few clicks**.
 
 ### Use cases
 
@@ -34,31 +38,59 @@ Saeros can detect thousands of suspicious activities, including:
 - Users being created or added to sensitive user groups (privilege escalation)
 - Event logs being cleared (defense evasion)
 
-## Features
+## Deployment
 
-- Real-time detection based on 2000+ Sigma rules
-- Secure and powerful user interface
-- Automatic audit policies configuration
-- Sigma rule import
-- Rule exclusions
-- ElasticSearch integration (Slack/SYSLOG/SMTP in a next release)
-- Mitre Att&ck mapping
+Saeros can be deployed on a standalone Microsoft Windows endpoint or across Microsoft Active Directory domains. The setup installs two Windows services and a desktop application.
 
-## Built-in Sigma rules
+**Saeros Collector (Agent)** – A Windows service that starts automatically with the system. It configures audit policies, subscribes to ETW channels, performs Sigma rule matching, and forwards detections to the *Bridge*. For simplicity, this service is referred to as the *Agent*.
 
-The default rules are derived from a curated subset of the official [Sigma](https://github.com/SigmaHQ/sigma) rule repository.
+**Saeros Collector (Bridge)** – A Windows service that also starts automatically with the system. It communicates with the *Agent*, manages Sigma rule configuration, stores detections in a local SQLite database, and forwards them to configured SIEMs. The *Bridge* exposes an API used by the *Console*.
 
-## Deployments
+**Saeros Console** – A Windows desktop application used to manage Sigma rules and exclusions, browse detections, configure integrations, and deploy collectors to Active Directory domains.
 
-Saeros can be deployed on a standalone Windows endpoint or across Microsoft Active Directory domains.
+---
 
-### Standalone deployment
+### Non Domain-Joined Environment
 
-The collector runs as a Windows service that subscribes to relevant ETW channels and performs real-time Sigma rule matching. Each detection is stored locally and then forwarded to any configured integration such as Elasticsearch or other supported SIEMs.
+In a non domain-joined (standalone) environment, the installer deploys both services and the *Console* on the local machine. Saeros immediately begins collecting events, and detections become available in the *Console*. An *Agent* can still be deployed to a domain later to monitor domain controllers.
 
-### Active Directory deployment
+#### Requirements
 
-The collector is deployed to domain controllers via a Group Policy Object (GPO) and forwards all detections to the machine where Saeros is installed.
+This is the simplest setup: no network or firewall configuration is required, and all communication occurs locally. The *Saeros Collector (Bridge)* service exposes a local HTTP endpoint and uses local gRPC communication with both the *Agent* and the *Console*.
+
+---
+
+### Domain-Joined Environment
+
+In a domain-joined environment, the installer detects domain membership and can deploy an *Agent* to each domain controller during setup. Deployment occurs via a Group Policy Object (GPO). Each *Agent* forwards detections through a gRPC named pipe to the local *Saeros Collector (Bridge)* service (where the installer was run).
+
+#### Requirements
+
+Deployment must be performed by a user in the **Builtin Administrators** group. The password is not stored and is used only to establish SMB/LDAP connections during deployment.
+
+The following ports must be open, and firewall rules must allow connections from the *Console* to the primary domain controller:
+
+- **TCP/445**
+- **TCP/389** (or **TCP/686** for LDAPS)
+
+Deployment creates a GPO with the following components:
+
+- Location:  
+  **C:\Windows\SYSVOL\domain\Policies\{3560FF19-45A3-4F9A-956B-937A04D2AABF}**
+- A scheduled task that installs the *Saeros Collector (Agent)* service on domain controllers
+- **Audit.csv** containing required audit policies based on configured rules
+- Registry values enabling the required ETW channels
+- ADMX templates that configure PowerShell policies, including:  
+  *Include command line in process creation events*,  
+  *Configure Logon Script Delay*,  
+  *Turn on Module Logging*,  
+  *Turn on PowerShell Script Block Logging*
+
+**Note:** Only detections—not full event logs—are sent from the *Agent* to the *Bridge*, significantly reducing bandwidth requirements.
+
+## Installation
+
+Saeros is quick and straightforward to install. Download Saeros-Setup.exe from the [Releases](https://github.com/Saeros-Security/Saeros/releases/tag/v1.0.0) page and follow the guided setup.
 
 ## Performances
 
@@ -99,7 +131,3 @@ Saeros has been tested on domain controllers processing over 20,000 events per s
 <img width="3072" height="1831" alt="Settings-1" src="https://github.com/user-attachments/assets/637addf7-5f82-45b3-b692-317380b86373" />
 
 <img width="3072" height="1831" alt="Settings-2" src="https://github.com/user-attachments/assets/a8616506-2cc9-4d0e-9c64-c721b377f287" />
-
-## Installation
-
-Saeros is fast and easy to setup. Download Saeros-Setup.exe in the [Releases](https://github.com/Saeros-Security/Saeros/releases/tag/v1.0.0) section and follow the steps.
