@@ -42,11 +42,11 @@ Saeros can detect thousands of suspicious activities, including:
 
 Saeros can be deployed on a standalone Microsoft Windows endpoint or across Microsoft Active Directory domains. The setup installs two Windows services and a desktop application.
 
-**Saeros Collector (Agent)** – A Windows service that starts automatically with the system. It configures audit policies, subscribes to ETW channels, performs Sigma rule matching, and forwards detections to the *Bridge*. For simplicity, this service is referred to as the *Agent*.
+**Saeros Collector (Agent)** – A Windows service that starts automatically with the system. It configures audit policies, subscribes to ETW channels, performs Sigma rule matching, and forwards detections to the *Bridge*. For simplicity, this service is referred to as the *Agent*. It usually sits on standalone Windows workstation or on domain controllers.
 
-**Saeros Collector (Bridge)** – A Windows service that also starts automatically with the system. It communicates with the *Agent*, manages Sigma rule configuration, stores detections in a local SQLite database, and forwards them to configured SIEMs. The *Bridge* exposes an API used by the *Console*.
+**Saeros Collector (Bridge)** – A Windows service that also starts automatically with the system. It communicates with the *Agent*, manages Sigma rule configuration, stores detections in a local SQLite database, and forwards them to configured SIEMs. The *Bridge* exposes an API used by the *Console*. It usually sits on the local installation (where the installer was run).
 
-**Saeros Console** – A Windows desktop application used to manage Sigma rules and exclusions, browse detections, configure integrations, and deploy collectors to Active Directory domains.
+**Saeros Console** – A Windows desktop application used to manage Sigma rules and exclusions, browse detections, configure integrations, and deploy collectors to Active Directory domains. It usually sits on the local installation (where the installer was run).
 
 ---
 
