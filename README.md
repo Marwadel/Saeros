@@ -92,7 +92,7 @@ Deployment creates a GPO with the following components:
 #### Diagrams
 | Standalone           | Active Directory |
 | ------------- | ------------- |
-| <img src="https://github.com/user-attachments/assets/4b5119d3-0302-4605-bf3e-0abd52e56ad5" data-canonical-src="https://github.com/user-attachments/assets/4b5119d3-0302-4605-bf3e-0abd52e56ad5" width="500" />  | <img src="https://github.com/user-attachments/assets/652dbdde-746c-47fc-bf93-758fa83c1b11" data-canonical-src="https://github.com/user-attachments/assets/652dbdde-746c-47fc-bf93-758fa83c1b11" width="500" />  |
+| <img src="https://github.com/user-attachments/assets/3fbd705c-8ebc-4894-9317-59d44dc575c6" data-canonical-src="https://github.com/user-attachments/assets/3fbd705c-8ebc-4894-9317-59d44dc575c6" width="500" />  | <img src="https://github.com/user-attachments/assets/c7cb7208-03ef-4689-8804-21e3e4cb7987" data-canonical-src="https://github.com/user-attachments/assets/c7cb7208-03ef-4689-8804-21e3e4cb7987" width="500" />  |
 
 ## Installation
 
