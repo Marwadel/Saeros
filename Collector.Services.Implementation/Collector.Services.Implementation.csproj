@@ -37,7 +37,7 @@
 
     <ItemGroup>
       <PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
-      <PackageReference Include="MaxMind.Db" Version="4.2.0" />
+      <PackageReference Include="MaxMind.Db" Version="4.3.4" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
       <PackageReference Include="PeNet" Version="5.1.0" />
     </ItemGroup>

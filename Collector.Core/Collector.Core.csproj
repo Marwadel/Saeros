@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="App.Metrics" Version="4.3.0" />
-    <PackageReference Include="Autofac" Version="8.4.0" />
+    <PackageReference Include="Autofac" Version="9.0.0" />
     <PackageReference Include="BitFaster.Caching" Version="2.5.4" />
     <PackageReference Include="ConcurrentHashSet" Version="1.3.0" />
     <PackageReference Include="K4os.Compression.LZ4.Streams" Version="1.3.8" />
